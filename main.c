@@ -32,10 +32,30 @@ void printGrid(int x, int y, int array[y][x]) {
     }
 }
 
+int aliveNeighbours(int x, int y, int array[y][x]) {
+    int current = 0;
+    for(int i = -1; i <= 1; i++) {
+        for(int j = -1; j <= 1; j++) {
+            if( x != 0 && y != 0 ) {
+                current += array[y + i][x + j];
+            }
+        }
+    }
+    return current;
+}
+
+void nextGeneration(int x, int y, int array[y][x]) {
+    
+}
+
 int main(int argc, const char *argv[]) {
     const int xBoundary = 25;
     const int yBoundary = 25;
+    const int generations = 40;
+
     int boundaries[yBoundary][xBoundary];
+
+
     resetGrid(xBoundary, yBoundary, boundaries);
     printGrid(xBoundary, yBoundary, boundaries);
 
